@@ -30,7 +30,10 @@ Wasserstand: 400 ml
 """
 
 # TODO: Erstelle hier die Klasse Kaffeemaschine
-
+class Kaffeemaschine:
+    def wasserstand(self, wasserstand):
+        
+        
 
 # TODO: Erstelle eine Kaffeemaschine mit 500ml Wasser
 
