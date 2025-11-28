@@ -31,26 +31,42 @@ Wasserstand: 400 ml
 
 # TODO: Erstelle hier die Klasse Kaffeemaschine
 class Kaffeemaschine:
-    def wasserstand(self, wasserstand):
+    def __init__(self, wasserstand):
         self.wasserstand = wasserstand
+    def kaffeemachen(self, menge):
+        self.menge = menge
+        if self.wasserstand >= menge:
+            self.wasserstand -= menge
+            print(f"Kaffee gemacht: {menge}ml")
+        else:
+            print("❌ Nicht genug Wasser! Bitte nachfüllen.")
+    def wasser_nachfüllen(self, menge):
+        self.wasserstand += menge
+        print(f"{menge} Wasser nachgefüllt")
+    def zeige_status(self):
+        print(f"Der aktuelle Wasserstand beträgt: {self.wasserstand}ml.")
         
 
 # TODO: Erstelle eine Kaffeemaschine mit 500ml Wasser
-
+kaffee_maschine_1 = Kaffeemaschine(500)
 
 # TODO: Zeige den Status
-
+kaffee_maschine_1.zeige_status()
 
 # TODO: Mache 2x Kaffee mit je 200ml
+kaffee_maschine_1.kaffeemachen(200)
+kaffee_maschine_1.kaffeemachen(200)
 
 
 # TODO: Versuche nochmal Kaffee zu machen (sollte fehlschlagen)
-
+kaffee_maschine_1.kaffeemachen(200)
 
 # TODO: Fülle 500ml Wasser nach
-
+kaffee_maschine_1.wasser_nachfüllen(500)
 
 # TODO: Mache nochmal Kaffee mit 200ml
+kaffee_maschine_1.kaffeemachen(200)
 
 
 # TODO: Zeige den Status erneut
+kaffee_maschine_1.zeige_status()
