@@ -36,13 +36,38 @@ Beide Songs haben denselben Datentyp: True
 
 # TODO: Importiere die Klasse Song aus 05_song
 # from 05_song import Song
-
+from song import Song #from "filename ohne py" import "Classname"
+song_1 = Song("Africa", "Toto", "https://www.youtube.com/watch?v=FTQbiNvZqaY&list=RDFTQbiNvZqaY&start_radio=1")
+song_1.zeige_info()
+song_2 = Song("Africa", "Toto", "https://www.youtube.com/watch?v=FTQbiNvZqaY&list=RDFTQbiNvZqaY&start_radio=1")
 
 # TODO: Erstelle verschiedene Variablen mit unterschiedlichen Datentypen
 # text = "Hallo"
 # zahl = 42
 # liste = [1, 2, 3]
+text = "Hallo"
+zahl = 42
+liste = [1, 2, 3]
 
+print(type(text))
+print(type(zahl))
+print(type(liste))
+print(type(song_1))
+#Immer wenn eine neue Klasse angelegt wird, wird ein neuer Datentyp erstellt.
+
+liste_songs = [song_1, song_2]
+print(liste_songs[0].titel)
+print(liste_songs[0].zeige_info())
+print(liste_songs[0].interpreten)
+print(liste_songs[1].titel)
+print(liste_songs[1].zeige_info())
+print(liste_songs[1].interpreten)
+
+song_3 = Song("Fein", "Travis Scott", "df")
+liste_songs.append(song_3)
+
+for x in liste_songs:
+    print(x.titel)
 
 # TODO: Erstelle 3 Song-Objekte mit Titeln und Interpreten deiner Wahl
 

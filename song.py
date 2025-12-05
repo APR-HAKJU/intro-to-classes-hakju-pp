@@ -1,36 +1,76 @@
-# Gegeben ist eine Liste, die Informationen über verschiedene Songs enthält.
-# Verändere den Code so, dass eine Klasse "Song" definiert wird.
-# Die Eigenschaften Titel, Künstler und Anzahl der Streams sollen als Attribute im Konstruktor definiert werden
+"""
+Übung 3: Song mit Listen
 
+Aufgabe:
+Erstelle eine Klasse `Song` mit:
+- Konstruktor mit Parametern: titel (String) und interpreten (Liste, z.B. ["Artist1", "Artist2"])
+- Methode interpret_hinzufuegen(name) mit Parameter:
+  - Fügt einen neuen Interpreten zur Liste hinzu
+  - Gibt aus "🎤 {name} wurde hinzugefügt"
+- Methode zeige_info() ohne Parameter:
+  - Zeigt Titel und alle Interpreten an
+- Methode anzahl_interpreten() ohne Parameter:
+  - Gibt die Anzahl der Interpreten zurück
+- Methode play() ohne Parameter:
+  - Gibt aus "▶️ Song '{titel}' wird gespielt..."
+
+Erstelle einen Song mit einem Titel und 2 Interpreten deiner Wahl,
+zeige die Info, füge einen weiteren Interpreten hinzu, zeige die Anzahl und die Info nochmal.
+Spiele dann den Song ab.
+
+💡 Tipps:
+- self.interpreten.append(name) fügt ein Element zur Liste hinzu
+- len(self.interpreten) gibt die Anzahl der Elemente zurück
+- Mit einer for-Schleife kannst du alle Interpreten ausgeben
+- Du kannst beliebige Interpreten und Titel verwenden!
+
+Beispiel Ergebnis:
+🎵 Song: Summer Vibes
+   Interpreten: DJ Max, Sarah Sound
+🎤 Beat Producer wurde hinzugefügt
+👥 Anzahl Interpreten: 3
+🎵 Song: Summer Vibes
+   Interpreten: DJ Max, Sarah Sound, Beat Producer
+▶️ Song 'Summer Vibes' wird gespielt...
+"""
+import webbrowser
+# TODO: Erstelle hier die Klasse Song
 class Song:
-    def __init__(self, titel, Künstler, Anzahl_Streams):
+    def __init__(self, titel, interpreten, link):
         self.titel = titel
-        self.künstler = Künstler
-        self.anzahl_streams = int(Anzahl_Streams)
-    
-    def print_info(self):
-        print(f"Der Song {self.titel} von {self.künstler} hat {self.anzahl_streams} Streams.")
-        
-song_1 = Song("Blinding Lights", "The Weeknd", 4_200_000_000)
-song_2 = Song("Shape of You", "Ed Sheeran", 5_300_000_000)
-song_3 = Song("Dance Monkey", "Tones and I", 3_400_000_000)
+        self.interpreten = interpreten
+        self.link = link
+        print(f"Neuer Song mit Titel: {self.titel} & Interpreten {self.interpreten} wurde hinzugefügt.")
+    def zeige_info(self):
+        print(f"Neuer Song mit Titel: {self.titel} & Interpreten {self.interpreten} wurde hinzugefügt.")
+    def interpret_hinzufügen(self, neuer_interpret):
+        self.interpreten.append(neuer_interpret)
+        print(f"🎤 {neuer_interpret} wurde hinzugefügt")
+        print(f"Alle Interpreten: {self.interpreten}")
+    def anzahl_interpreten(self):
+        return len(self.interpreten)
+    def play(self):
+        webbrowser.open(self.link)
 
-songs = [song_1, song_2, song_3]
 
-#TODO: Aufgabe 1: 
-#   Definiere die Klasse "Song" mit einem Konstruktor (__init__),
-#  der die Attribute titel, künstler und streams initialisiert.
+# TODO: Erstelle einen Song mit einem Titel und 2 Interpreten deiner Wahl
+song_1 = Song("Die with a smile", ["Bruno Mars", "Lady Gaga"], "https://www.youtube.com/watch?v=QCq9751mOFo&list=RDQCq9751mOFo&start_radio=1")
+song_2 = Song("Pamela", "Toto", "https://www.youtube.com/watch?v=QCq9751mOFo&list=RDQCq9751mOFo&start_radio=1")
+song_3 = Song("Valerie", ["Amy Whinehouse", "Mark Ronson"], "https://www.youtube.com/watch?v=QCq9751mOFo&list=RDQCq9751mOFo&start_radio=1")
 
-# TODO: Aufgabe 2:
-#   Erstelle drei Objekte der Klasse "Song" mit den Informationen aus der Liste oben
+# TODO: Zeige die Song-Info
+song_1.zeige_info()
 
-# TODO: Aufgabe 3:
-#   Gib für jeden Song den Titel und die Anzahl der Streams in folgendem Format aus:
-#   "Der Song '<Titel>' von <Künstler> hat <Anzahl der Streams> Streams."
+# TODO: Füge einen weiteren Interpreten hinzu
+song_1.interpret_hinzufügen("DJ Lenzi")
+song_1.interpret_hinzufügen("DJ Obdacher")
+# TODO: Zeige die Anzahl der Interpreten
+nr_artists = song_1.anzahl_interpreten()
+print(nr_artists)
 
-"""print(f"Der Song {song_1.titel} von {song_1.künstler} hat {song_1.anzahl_streams} Streams.")
-print(f"Der Song {song_2.titel} von {song_2.künstler} hat {song_2.anzahl_streams} Streams.")
-print(f"Der Song {song_3.titel} von {song_3.künstler} hat {song_3.anzahl_streams} Streams.")"""
+# TODO: Zeige die Song-Info erneut
+song_1.zeige_info()
 
-for x in songs:
-    x.print_info()
+
+# TODO: Spiele den Song ab
+#song_2.play()
